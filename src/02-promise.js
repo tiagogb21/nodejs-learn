@@ -10,13 +10,13 @@
 // .catch(tratarErro)
 // .finally()
 
-    // obs.: .catch = .then(null, tratarErro)
+// obs.: .catch = .then(null, tratarErro)
 
-    // obs.: o .then e o .catch também retornam uma nova promise
+// obs.: o .then e o .catch também retornam uma nova promise
 
-    // Podemos passar uma nova Promise para dentro do then/catch
+// Podemos passar uma nova Promise para dentro do then/catch
 
-function getUser(callback) {
+function getUser() {
     // quando sucesso --> resolve
     // quando der um problema --> reject(ERRO)
     return new Promise(function resolvePromise(resolve, reject) {
@@ -30,28 +30,36 @@ function getUser(callback) {
 
         // Se caísse no erro:
         // reject(someError);
-    })
+    });
 }
 
 function getPhone(userId) {
-    return setTimeout(function () {
-        return callback(null, {
-            userId,
-            phone: "9182345",
-            ddd: 35,
-        });
-    }, 1000);
+    return new Promise(function resolvePromise(resolve, reject) {
+        setTimeout(function () {
+            return resolve({
+                userId,
+                phone: "9182345",
+                ddd: 35,
+            });
+        }, 1000);
+    });
 }
 
 function getAddress(userId) {
-    return setTimeout(function () {
-        return callback(null, {
-            userId,
-            street: "rua das andorinhas",
-            city: "pedrinhas",
-            state: "sp",
-        });
-    }, 1000);
+    return new Promise(function resolvePromise(resolve, reject) {
+        setTimeout(function () {
+            return resolve({
+                userId,
+                street: "rua das andorinhas",
+                city: "pedrinhas",
+                state: "sp",
+            });
+        }, 1000);
+    });
 }
 
-module.exports = getUser();
+module.exports = {
+    getUser,
+    getPhone,
+    getAddress,
+};
