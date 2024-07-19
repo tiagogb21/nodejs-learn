@@ -1,3 +1,14 @@
+// Problemas:
+
+    // 1 - Aninhamento profundo
+    // 2 - Complexidade de código
+
+// Callbacks:
+    // Funções que são passadas como argumentos para outra função e são executadas quando uma tarefa específica é concluída.
+
+// Callback Hell:
+    // Cria um problema quando temos múltiplas operações assíncronas.
+
 function getUser(callback) {
     setTimeout(function () {
         return callback(null, {

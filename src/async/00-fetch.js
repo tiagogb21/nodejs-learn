@@ -1,6 +1,7 @@
 const fetch = require('node-fetch');
 
 const USER_BASE_URL = 'https://api.github.com';
+
 const getUserData = (user) => `${USER_BASE_URL}/users/${user}`;
 
 class GithubUserInfo {

@@ -16,6 +16,8 @@
 
 // Podemos passar uma nova Promise para dentro do then/catch
 
+// obs.: Promises resolvem o problema principal do callback hell.
+
 function getUser() {
     // quando sucesso --> resolve
     // quando der um problema --> reject(ERRO)
